@@ -5,9 +5,9 @@ build
 coverage
 
 # Ignore config files
-*.config.js
-*.config.cjs
-*.config.mjs
+# *.config.js
+# *.config.cjs
+# *.config.mjs
 
 # Ignore lock files
 package-lock.json
