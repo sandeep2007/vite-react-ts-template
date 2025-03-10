@@ -1,23 +1,33 @@
-import js from '@eslint/js'
-import reactPlugin from 'eslint-plugin-react'
-import reactHooks from 'eslint-plugin-react-hooks'
-import reactRefresh from 'eslint-plugin-react-refresh'
-import globals from 'globals'
-import tseslint from 'typescript-eslint'
+import js from '@eslint/js';
+import reactPlugin from 'eslint-plugin-react';
+import reactHooks from 'eslint-plugin-react-hooks';
+import reactRefresh from 'eslint-plugin-react-refresh';
+import globals from 'globals';
+import tseslint from 'typescript-eslint';
 
 export default tseslint.config(
   { ignores: ['dist', 'node_modules'] },
   {
-    extends: [js.configs.recommended, ...tseslint.configs.recommended],
+    extends: [
+      js.configs.recommended,
+      // ...tseslint.configs.recommended,
+      // ...tseslint.configs.strictTypeChecked,
+      ...tseslint.configs.recommendedTypeChecked,
+      ...tseslint.configs.stylisticTypeChecked,
+    ],
     files: ['**/*.{ts,tsx}'],
     languageOptions: {
       ecmaVersion: 2020,
       globals: globals.browser,
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
     },
     settings: {
       react: {
-        version: "detect" 
-      }
+        version: 'detect',
+      },
     },
     plugins: {
       'react-hooks': reactHooks,
@@ -31,23 +41,25 @@ export default tseslint.config(
         'warn',
         { allowConstantExport: true },
       ],
-      "no-console": ["error", { allow: ["warn", "error"] }],
-      "react/function-component-definition": [
-        "error",
+      'no-console': ['error', { allow: ['warn', 'error'] }],
+      'react/function-component-definition': [
+        'error',
         {
-          "namedComponents": "function-declaration",
-          "unnamedComponents": "function-expression"
-        }
+          namedComponents: 'function-declaration',
+          unnamedComponents: 'function-expression',
+        },
       ],
-      "@typescript-eslint/no-unused-vars": [
-        "error",
-        { "varsIgnorePattern": "^_", "argsIgnorePattern": "^_" }
+      '@typescript-eslint/no-unused-vars': [
+        'error',
+        { varsIgnorePattern: '^_', argsIgnorePattern: '^_' },
       ],
-      "react/jsx-boolean-value": ["error", "never"],
-      "react/no-array-index-key": "warn",
-      "react-hooks/exhaustive-deps": "warn",
-      "@/no-duplicate-imports": "warn",
-      "react/jsx-no-useless-fragment": "warn",
+      'react/jsx-boolean-value': ['error', 'never'],
+      'react/no-array-index-key': 'warn',
+      'react-hooks/exhaustive-deps': 'warn',
+      '@/no-duplicate-imports': 'warn',
+      'react/jsx-no-useless-fragment': 'warn',
+      '@typescript-eslint/strict-boolean-expressions': 'warn',
+      '@typescript-eslint/no-floating-promises': 'error',
     },
-  },
-)
+  }
+);
