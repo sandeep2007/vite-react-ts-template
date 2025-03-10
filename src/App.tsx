@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 import './App.css';
 import reactLogo from './assets/react.svg';
@@ -6,10 +6,6 @@ import viteLogo from '/vite.svg';
 
 function App() {
   const [count, setCount] = useState(0);
-
-  useEffect(() => {
-    // setCount(count + 2);
-  }, [count]);
 
   const test = (e: unknown, _?: unknown) => {
     // eslint-disable-next-line no-console
