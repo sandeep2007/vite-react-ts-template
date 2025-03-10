@@ -1,5 +1,5 @@
 {
-  "name": "vite-react-ts",
+  "name": "vite-react-ts-template",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -11,6 +11,13 @@
     "preview": "vite preview",
     "prettier": "prettier --write .",
     "prepare": "husky"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=10.8.2",
+    "yarn": "please-use-npm",
+    "pnpm": "please-use-npm",
+    "bun": "please-use-npm"
   },
   "dependencies": {
     "react": "^19.0.0",
@@ -34,5 +41,6 @@
     "typescript": "~5.7.2",
     "typescript-eslint": "^8.24.1",
     "vite": "^6.2.0"
-  }
+  },
+  "packageManager": "npm@10.8.2"
 }
