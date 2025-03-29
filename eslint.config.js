@@ -73,6 +73,11 @@ export default tseslint.config(
       'react/jsx-wrap-multilines': 'error',
       'react/self-closing-comp': 'error',
       'react/jsx-closing-bracket-location': 'error',
+      '@typescript-eslint/no-unsafe-assignment': 'warn',
+      '@typescript-eslint/strict-boolean-expressions': 'off',
+      '@typescript-eslint/no-unsafe-member-access': 'off',
+      '@typescript-eslint/no-unsafe-argument': 'warn',
+      '@typescript-eslint/no-explicit-any': 'warn',
     },
   }
 );

@@ -34,7 +34,7 @@ module.exports = {
         'chore',
         'ci',
         'docs',
-        'feat',
+        'feature',
         'fix',
         'perf',
         'refactor',
