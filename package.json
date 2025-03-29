@@ -14,8 +14,14 @@
   },
   "lint-staged": {
     "*.{js,ts,jsx,tsx}": [
-      "prettier --write .",
-      "eslint ."
+      "prettier --write",
+      "eslint"
+    ],
+    "*.{scss,css}": [
+      "prettier --check"
+    ],
+    "*.{json,cjs,mjs}": [
+      "prettier --check"
     ]
   },
   "engines": {
