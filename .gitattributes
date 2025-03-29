@@ -1,0 +1,5 @@
+# Normalize line endings to LF
+* text=auto eol=lf
+
+# Keep specific file types with CRLF if needed
+*.bat text eol=crlf

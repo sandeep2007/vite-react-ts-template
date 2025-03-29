@@ -1,4 +1,5 @@
 import js from '@eslint/js';
+import jsxA11y from 'eslint-plugin-jsx-a11y';
 import reactPlugin from 'eslint-plugin-react';
 import reactHooks from 'eslint-plugin-react-hooks';
 import reactRefresh from 'eslint-plugin-react-refresh';
@@ -22,6 +23,9 @@ export default tseslint.config(
       parserOptions: {
         project: ['./tsconfig.node.json', './tsconfig.app.json'],
         tsconfigRootDir: import.meta.dirname,
+        ecmaFeatures: {
+          jsx: true,
+        },
       },
     },
     settings: {
@@ -33,6 +37,7 @@ export default tseslint.config(
       'react-hooks': reactHooks,
       'react-refresh': reactRefresh,
       react: reactPlugin,
+      'jsx-a11y': jsxA11y,
     },
     rules: {
       ...reactHooks.configs.recommended.rules,
@@ -60,6 +65,14 @@ export default tseslint.config(
       'react/jsx-no-useless-fragment': 'warn',
       '@typescript-eslint/strict-boolean-expressions': 'warn',
       '@typescript-eslint/no-floating-promises': 'error',
+      'jsx-a11y/alt-text': 'error',
+      'jsx-a11y/img-redundant-alt': 'error',
+      'jsx-a11y/aria-role': 'error',
+      'jsx-a11y/no-access-key': 'error',
+      'react/no-string-refs': 'error',
+      'react/jsx-wrap-multilines': 'error',
+      'react/self-closing-comp': 'error',
+      'react/jsx-closing-bracket-location': 'error',
     },
   }
 );
